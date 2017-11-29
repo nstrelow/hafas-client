@@ -17,7 +17,6 @@ const {
 	assertValidStopover,
 	when, isValidWhen
 } = require('./util.js')
-console.error('when', when)
 
 const findStation = (id) => new Promise((yay, nay) => {
 	const stations = getStations()
@@ -62,7 +61,7 @@ const assertValidProducts = (t, p) => {
 const test = tapePromise(tape)
 const client = createClient(dbProfile)
 
-test.only('Berlin Jungfernheide to München Hbf', async (t) => {
+test('Berlin Jungfernheide to München Hbf', async (t) => {
 	const journeys = await client.journeys('8011167', '8000261', {
 		when, passedStations: true
 	})
